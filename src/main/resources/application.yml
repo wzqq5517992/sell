@@ -1,0 +1,8 @@
+
+
+#logging:
+#  pattern:
+#    console: "%d - %msg%n"
+##  path: /var/log/tomcat/
+#  file: D:/var/log/tomcat/sell.log
+#  level: debug   #设置日志级别

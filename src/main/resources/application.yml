@@ -13,3 +13,6 @@ spring:
 ##  path: /var/log/tomcat/
 #  file: D:/var/log/tomcat/sell.log
 #  level: debug   #设置日志级别
+server:
+  servlet:
+    context-path: /sell

@@ -44,6 +44,7 @@
             <!--路径-->
             <!--<fileNamePattern>/var/log/tomcat/sell/error.%d.log</fileNamePattern>-->
             <fileNamePattern>/Users/jolin/Documents/SpringClound/sellLogs/error.%d.log</fileNamePattern>
+
         </rollingPolicy>
     </appender>
 

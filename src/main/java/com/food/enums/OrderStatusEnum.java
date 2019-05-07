@@ -1,27 +1,28 @@
 package com.food.enums;
+
 import lombok.Getter;
-/**商品状态枚举
+
+/**
  * @author wzq.Jolin
  * @company none
- * @create 2019-05-06 22:26
+ * @create 2019-05-07 17:18
  */
-
 @Getter
-public enum ProductStatusEnum {
+public enum OrderStatusEnum {
     /**
-     * 商品状态
+     * 订单状态
      */
-    UP(0, "在架"),
-    DOWN(1, "下架");
+    NEW(0, "新订单"),
+    FINISHED(1, "完结"),
+    CANCEL(2, "已取消"),
+    ;
 
     private Integer code;
 
     private String message;
 
-    ProductStatusEnum(Integer code, String message) {
+    OrderStatusEnum(Integer code, String message) {
         this.code = code;
         this.message = message;
     }
-
-
 }

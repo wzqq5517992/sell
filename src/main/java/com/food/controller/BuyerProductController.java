@@ -8,6 +8,9 @@ import com.food.dataobject.ProductInfo;
 import com.food.service.CategoryService;
 import com.food.service.ProductService;
 import com.food.utils.ResultVOUtil;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,8 +28,10 @@ import java.util.stream.Collectors;
  * @company none
  * @create 2019-05-06 22:48
  */
+
 @RestController
 @RequestMapping("/buyer/product")
+@Api(value="买家商品信息接口",description = "买家用于查询商品的各类信息")
 public class BuyerProductController {
     @Autowired
     private ProductService productService;
@@ -34,6 +39,9 @@ public class BuyerProductController {
     @Autowired
     private CategoryService categoryService;
 
+    @ApiOperation(value="查询所有上架商品信息及类目", notes="无入参")
+   // @ApiImplicitParam(name = "id", value = "用户ID")
+    @SuppressWarnings("AlibabaRemoveCommentedCode")
     @GetMapping("/list")
     public ResultVO list() {
         //1.查询所有上架商品
@@ -44,7 +52,7 @@ public class BuyerProductController {
 //        for (ProductInfo productInfo : productInfoList) {
 //            categoryTypeList.add(productInfo.getCategoryType());
 //        }
-        //lambda表达式
+        //todo lambda表达式
         List<Integer> categoryTypeList = productInfoList.stream()
                 .map(ProductInfo::getCategoryType)
                 .collect(Collectors.toList());

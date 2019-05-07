@@ -21,10 +21,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class LoggerTest {
     @Test
     public void test1() {
-        String name = "imooc";
+        String name = "";
+
         String password = "123456";
         log.debug("debug...");
-        log.info("name: " + name + " ,password: " + password);
+        log.info("name: " + name.length() + " ,password: " + password);
         log.info("name: {}, password: {}", name, password);
         log.error("error...");
         log.warn("warn...");

@@ -1,29 +1,21 @@
-package com.food.dataobject;
+package com.food.dto;
 
-import com.food.enums.OrderStatusEnum;
-import com.food.enums.PayStatusEnum;
+import com.food.dataobject.OrderDetail;
 import lombok.Data;
-import org.hibernate.annotations.DynamicUpdate;
 
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Transient;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-/**订单主表信息
+/**
  * @author wzq.Jolin
  * @company none
- * @create 2019-05-07 17:16
+ * @create 2019-05-07 22:14
  */
-@Entity
 @Data
-@DynamicUpdate
-public class OrderMaster {
+public class OrderDTO {
+
     /** 订单id. */
-    @Id
     private String orderId;
 
     /** 买家名字. */
@@ -42,10 +34,10 @@ public class OrderMaster {
     private BigDecimal orderAmount;
 
     /** 订单状态, 默认为0新下单. */
-    private Integer orderStatus = OrderStatusEnum.NEW.getCode();
+    private Integer orderStatus;
 
     /** 支付状态, 默认为0未支付. */
-    private Integer payStatus = PayStatusEnum.WAIT.getCode();
+    private Integer payStatus;
 
     /** 创建时间. */
     private Date createTime;
@@ -53,7 +45,5 @@ public class OrderMaster {
     /** 更新时间. */
     private Date updateTime;
 
-    /** */
-    @Transient
-    private List<OrderDetail> orderDetailList;
+    List<OrderDetail> orderDetailList;
 }

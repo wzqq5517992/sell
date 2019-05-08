@@ -11,6 +11,7 @@ import com.food.utils.ResultVOUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,6 +33,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/buyer/product")
 @Api(value="买家商品信息接口",description = "买家用于查询商品的各类信息")
+@Slf4j
 public class BuyerProductController {
     @Autowired
     private ProductService productService;

@@ -2,7 +2,7 @@ package com.food.dto;
 
 import lombok.Data;
 
-/**
+/**购物车数据DTO
  * @author wzq.Jolin
  * @company none
  * @create 2019-05-07 22:19

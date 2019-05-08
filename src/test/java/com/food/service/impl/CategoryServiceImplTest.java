@@ -1,4 +1,4 @@
-package com.food.service.Impl;
+package com.food.service.impl;
 
 
 import com.food.dataobject.ProductCategory;
@@ -11,8 +11,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Arrays;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 /**
  * @author wzq.Jolin

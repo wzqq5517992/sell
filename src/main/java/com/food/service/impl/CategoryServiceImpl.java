@@ -1,4 +1,4 @@
-package com.food.service.Impl;
+package com.food.service.impl;
 
 import com.food.dataobject.ProductCategory;
 import com.food.repository.ProductCategoryRepository;

@@ -46,6 +46,7 @@ public class BuyerProductController {
     @SuppressWarnings("AlibabaRemoveCommentedCode")
     @GetMapping("/list")
     public ResultVO list() {
+        // http://3pd3fd.natappfree.cc
         //1.查询所有上架商品
         List<ProductInfo> productInfoList = productService.findUpAll();
         //2.查询类目,一次性查出来

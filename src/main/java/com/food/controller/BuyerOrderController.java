@@ -90,7 +90,7 @@ public ResultVO<Map<String, String>> create(@Valid OrderForm orderForm,
             throw new SellException(ResultEnum.PARAM_ERROR);
         }
 
-        PageRequest request = new PageRequest(page, size);
+        PageRequest request = PageRequest.of(page-1, size);
         Page<OrderDTO> orderDTOPage = orderService.findList(openid, request);
 
         return ResultVOUtil.success(orderDTOPage.getContent());

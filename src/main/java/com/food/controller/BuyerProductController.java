@@ -55,7 +55,7 @@ public class BuyerProductController {
 //        for (ProductInfo productInfo : productInfoList) {
 //            categoryTypeList.add(productInfo.getCategoryType());
 //        }
-        //todo lambda表达式
+        // lambda表达式
         List<Integer> categoryTypeList = productInfoList.stream()
                 .map(ProductInfo::getCategoryType)
                 .collect(Collectors.toList());

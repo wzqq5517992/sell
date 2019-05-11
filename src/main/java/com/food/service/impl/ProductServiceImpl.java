@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-/**
+/**商品实现类
  * @author wzq.Jolin
  * @company none
  * @create 2019-05-06 22:23

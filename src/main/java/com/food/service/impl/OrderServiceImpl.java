@@ -13,6 +13,7 @@ import com.food.exception.SellException;
 import com.food.repository.OrderDetailRepository;
 import com.food.repository.OrderMasterRepository;
 import com.food.service.OrderService;
+import com.food.service.PayService;
 import com.food.service.ProductService;
 import com.food.utils.KeyUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -30,7 +31,7 @@ import java.math.BigInteger;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
+/**订单实现类
  * @author wzq.Jolin
  * @company none
  * @create 2019-05-07 22:30
@@ -46,6 +47,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private OrderMasterRepository orderMasterRepository;
+    @Autowired
+    private PayService payService;
 
     @Override
     @Transactional
@@ -151,7 +154,8 @@ public class OrderServiceImpl implements OrderService {
 
         // todo 如果已支付, 需要退款
         if (orderDTO.getPayStatus().equals(PayStatusEnum.SUCCESS.getCode())) {
-            //TODO
+
+            payService.refund(orderDTO);
         }
 
         return orderDTO;

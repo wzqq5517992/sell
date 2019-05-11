@@ -20,5 +20,14 @@ server:
     context-path: /sell
 
 wechat:
-  mpAppId: wxb67f897b5876b3d9
-  mpAppSecret: 0495c6cbc658e3101bc5209e43b28b4f
+  #公众账号，授权
+  mpAppId: wxd2b15d212ee64641      #wxb67f897b5876b3d9
+  mpAppSecret: e3b5b9592473aa55790ea4f4f35dc453 #0495c6cbc658e3101bc5209e43b28b4f
+
+  #开放平台 微信扫码付
+  mchId: 148xxxxxxxx
+  mchKey: xxxxxxxxx
+  #发起支付不需要证书，退款需要
+  keyPath: /var/weixin_cert/h5.p12
+  #异步通知地址
+  notifyUrl: http://sell.natapp4.cc/sell/pay/notify

@@ -2,6 +2,8 @@ package com.food.controller;
 
 import com.food.enums.ResultEnum;
 import com.food.exception.SellException;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.api.WxConsts;
 import me.chanjar.weixin.common.exception.WxErrorException;
@@ -23,6 +25,7 @@ import java.net.URLEncoder;
  */
 @Controller
 @RequestMapping("/wechat")
+@Api(value="微信授权接口",description = "用于获取微信用户的openId")
 @Slf4j
 public class WechatController {
 
@@ -30,6 +33,7 @@ public class WechatController {
     private WxMpService wxMpService;
 
     @GetMapping("/authorize")
+    @ApiOperation(value="微信授权获取code", notes="入参returnUrl")
     public String authorize(@RequestParam("returnUrl") String returnUrl) {
         //1. 配置
         //2. 调用方法
@@ -39,6 +43,7 @@ public class WechatController {
     }
 
     @GetMapping("/userInfo")
+    @ApiOperation(value="微信授权获取openid", notes="跳转到新页面")
     public String userInfo(@RequestParam("code") String code,
                            @RequestParam("state") String returnUrl) {
         WxMpOAuth2AccessToken wxMpOAuth2AccessToken = new WxMpOAuth2AccessToken();

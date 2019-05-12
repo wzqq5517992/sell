@@ -8,7 +8,7 @@ import lombok.Getter;
  * @create 2019-05-07 17:18
  */
 @Getter
-public enum OrderStatusEnum {
+public enum OrderStatusEnum  implements  CodeEnum{
     /**
      * 订单状态
      */
@@ -25,4 +25,5 @@ public enum OrderStatusEnum {
         this.code = code;
         this.message = message;
     }
+
 }

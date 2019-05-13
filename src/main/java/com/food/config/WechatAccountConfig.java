@@ -4,6 +4,8 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import java.util.Map;
+
 /**微信Account配置
  * @author wzq.Jolin
  * @company none
@@ -22,8 +24,17 @@ public class WechatAccountConfig {
     /**
      * 公众号授权appSecret
      */
-
     private String mpAppSecret;
+
+    /**
+     * 开放平台id
+     */
+    private String openAppId;
+
+    /**
+     * 开放平台密钥
+     */
+    private String openAppSecret;
     /**
      * 商户号
      */
@@ -43,4 +54,9 @@ public class WechatAccountConfig {
      * 微信支付异步通知地址
      */
     private String notifyUrl;
+
+    /**
+     * 微信模版id
+     */
+    private Map<String, String> templateId;
 }

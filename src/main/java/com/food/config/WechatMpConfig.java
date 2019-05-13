@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
-/**微信第三方SDK
+/**微信授权
  * @author wzq.Jolin
  * @company none
  * @create 2019-05-09 11:49

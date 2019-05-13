@@ -8,6 +8,9 @@ spring:
     show-sql: true
   jackson:
     default-property-inclusion: non_null  # 结果集返回为空或null 的集合时直接不显示
+  redis:
+    host: 47.93.37.94
+    port: 6379
 #日志配置（已注释）
 #logging:
 #  pattern:
@@ -23,11 +26,19 @@ wechat:
   #公众账号，授权
   mpAppId: wxd2b15d212ee64641      #wxb67f897b5876b3d9
   mpAppSecret: e3b5b9592473aa55790ea4f4f35dc453 #0495c6cbc658e3101bc5209e43b28b4f
-
-  #开放平台 微信扫码付
+  #开放平台
+  openAppId: wx6ad144e54af67d87
+  openAppSecret: 91a2ff6d38a2bbccfb7e9f9079108e2e
+  # 商户号 微信扫码付
   mchId: 148xxxxxxxx
   mchKey: xxxxxxxxx
   #发起支付不需要证书，退款需要
   keyPath: /var/weixin_cert/h5.p12
   #异步通知地址
   notifyUrl: http://sell.natapp4.cc/sell/pay/notify
+  templateId:
+    orderStatus: e-Cqq67QxD6YNI41iRiqawEYdFavW_7pc7LyEMb-yeQ
+projecturl:
+  wechatMpAuthorize: http://wzq666.natapp1.cc
+  wechatOpenAuthorize: http://wzq666.natapp1.cc
+  sell: http://wzq666.natapp1.cc

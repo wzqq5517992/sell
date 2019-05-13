@@ -5,7 +5,7 @@ spring:
     password: 123456
     url: jdbc:mysql://47.93.37.94:33306/sell?characterEncoding=utf-8&useSSL=false
   jpa:
-    show-sql: true
+    show-sql: true  #jpa显示执行的sql语句
   jackson:
     default-property-inclusion: non_null  # 结果集返回为空或null 的集合时直接不显示
   redis:
@@ -22,6 +22,13 @@ server:
   servlet:
     context-path: /sell
 
+logging:
+  level:
+    com.food.dataobject.mapper: trace    #日志级别  显示指定包路径下mybatis的sql执行语句
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
+#微信相关信息
 wechat:
   #公众账号，授权
   mpAppId: wxd2b15d212ee64641      #wxb67f897b5876b3d9
@@ -38,6 +45,7 @@ wechat:
   notifyUrl: http://sell.natapp4.cc/sell/pay/notify
   templateId:
     orderStatus: e-Cqq67QxD6YNI41iRiqawEYdFavW_7pc7LyEMb-yeQ
+#项目地址相关信息
 projecturl:
   wechatMpAuthorize: http://wzq666.natapp1.cc
   wechatOpenAuthorize: http://wzq666.natapp1.cc

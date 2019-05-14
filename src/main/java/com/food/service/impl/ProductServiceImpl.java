@@ -8,6 +8,9 @@ import com.food.exception.SellException;
 import com.food.repository.ProductInfoRepository;
 import com.food.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -23,12 +26,14 @@ import java.util.Optional;
  */
 @SuppressWarnings({"ALL", "AlibabaTransactionMustHaveRollback"})
 @Service
+//@CacheConfig(cacheNames = "product")
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductInfoRepository repository;
 
     @Override
+    //@Cacheable(key="123")
     public ProductInfo findOne(String productId) {
         return repository.findById(productId).orElse(null);
     }
@@ -44,11 +49,11 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    //@CachePut(key="123")
     public ProductInfo save(ProductInfo productInfo) {
         return repository.save(productInfo);
     }
 
-    @SuppressWarnings("AlibabaTransactionMustHaveRollback")
     @Override
     @Transactional
     public void increaseStock(List<CartDTO> cartDTOList) {

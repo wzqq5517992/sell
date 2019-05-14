@@ -1,6 +1,7 @@
 package com.food.service.impl;
 
 import com.food.exception.SellException;
+import com.food.service.RedisLock;
 import com.food.service.SecKillService;
 import com.food.utils.KeyUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +20,8 @@ public class SecKillServiceImpl implements SecKillService {
 
     private static final int TIMEOUT = 10 * 1000; //超时时间 10s
 
-//    @Autowired
-//    private RedisLock redisLock;
+    @Autowired
+    private RedisLock redisLock;
 
     /**
      * 国庆活动，皮蛋粥特价，限量100000份
@@ -56,9 +57,15 @@ public class SecKillServiceImpl implements SecKillService {
     }
 
     @Override
-    public void orderProductMockDiffUser(String productId)
+    public  void orderProductMockDiffUser(String productId)
     {
         //加锁
+        long timeMillis = System.currentTimeMillis()+TIMEOUT;
+        if(!redisLock.lock(productId, String.valueOf(timeMillis)))
+        {
+          throw   new  SellException(101,"人数太多了，请稍后重试");
+        }
+
 
         //1.查询该商品库存，为0则活动结束。
         int stockNum = stock.get(productId);
@@ -78,6 +85,7 @@ public class SecKillServiceImpl implements SecKillService {
         }
 
         //解锁
+        redisLock.unlock(productId,String.valueOf(timeMillis));
 
     }
 }

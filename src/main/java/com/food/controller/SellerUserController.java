@@ -60,7 +60,6 @@ public class SellerUserController {
         Integer expire = RedisConstant.EXPIRE;
         redisTemplate.opsForValue().set(String.format(RedisConstant.TOKEN_PREFIX, token), openid, expire, TimeUnit.SECONDS);
         //3. 设置token至cookie
-
         CookieUtil.set(response, CookieConstant.TOKEN, token, expire);
 
         return new ModelAndView("redirect:" + projectUrlConfig.getSell() + "/sell/seller/order/list");

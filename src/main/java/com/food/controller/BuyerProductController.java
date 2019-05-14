@@ -14,8 +14,10 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -45,7 +47,8 @@ public class BuyerProductController {
    // @ApiImplicitParam(name = "id", value = "用户ID")
     @SuppressWarnings("AlibabaRemoveCommentedCode")
     @GetMapping("/list")
-    public ResultVO list() {
+    @Cacheable(cacheNames = "product",key="#sellerId",condition = "#sellerId.length()>3",unless = "result.getCode()!=0")  //unless代表如果不
+    public ResultVO list(@RequestParam(value = "sellerId",required = false) String sellerId ) {
         // http://3pd3fd.natappfree.cc
         //1.查询所有上架商品
         List<ProductInfo> productInfoList = productService.findUpAll();

@@ -30,7 +30,7 @@ public interface ProductService {
     Page<ProductInfo> findAll(Pageable pageable);
 
     /**
-     * 保存活新增商品
+     * 保存或新增商品
      * @param productInfo
      * @return
      */

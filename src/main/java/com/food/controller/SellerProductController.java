@@ -130,7 +130,7 @@ public class SellerProductController {
      */
     @PostMapping("/save")
    // @CachePut(cacheNames = "product",key="123")  // 每次执行方法都添加到缓存
-    //@CacheEvict(cacheNames = "product",key="123")  //清楚缓存
+    //@CacheEvict(cacheNames = "product",key="123")  //清楚缓存 ///
     public ModelAndView save(@Valid ProductForm form,
                              BindingResult bindingResult,
                              Map<String, Object> map) {

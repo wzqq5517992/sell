@@ -20,7 +20,6 @@ import java.util.List;
  * @create 2019-05-07 22:14
  */
 @Data
-//@JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class OrderDTO {
 
@@ -49,7 +48,7 @@ public class OrderDTO {
     private Integer payStatus;
 
     /** 创建时间. */
-    @JsonSerialize(using = Date2LongSerializer.class)
+    @JsonSerialize(using = Date2LongSerializer.class)  //将日期类型转化为long类型
     private Date createTime;
 
     /** 更新时间. */

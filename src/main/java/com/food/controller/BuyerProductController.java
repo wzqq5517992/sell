@@ -47,7 +47,7 @@ public class BuyerProductController {
    // @ApiImplicitParam(name = "id", value = "用户ID")
     @SuppressWarnings("AlibabaRemoveCommentedCode")
     @GetMapping("/list")
-    @Cacheable(cacheNames = "product",key="#sellerId",condition = "#sellerId.length()>3",unless = "result.getCode()!=0")  //unless代表如果不
+   // @Cacheable(cacheNames = "product",key="#sellerId",condition = "#sellerId.length()>3",unless = "result.getCode()!=0")  //unless代表如果不
     public ResultVO list(@RequestParam(value = "sellerId",required = false) String sellerId ) {
         // http://3pd3fd.natappfree.cc
         //1.查询所有上架商品

@@ -31,6 +31,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.ConcurrentHashMap;
 
 @RestController
 @RequestMapping("/buyer/order")
@@ -53,7 +54,11 @@ public class BuyerOrderController {
 @ApiOperation(value="买家创建订单", notes="orderForm")
 public ResultVO<Map<String, String>> create(@Valid OrderForm orderForm,
                                             BindingResult bindingResult) {
-    if (bindingResult.hasErrors()) {
+
+        ConcurrentHashMap<Object, Object> concurrentHashMap = new ConcurrentHashMap<>();
+        concurrentHashMap.put("lkj","ssss");
+
+        if (bindingResult.hasErrors()) {
         log.error("【创建订单】参数不正确, orderForm={}", orderForm);
         throw new SellException(ResultEnum.PARAM_ERROR.getCode(),
                 Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage());

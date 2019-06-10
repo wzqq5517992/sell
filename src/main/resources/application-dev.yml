@@ -47,6 +47,6 @@ projecturl:
   wechatOpenAuthorize: http://wzq666.natapp1.cc
   sell: http://wzq666.natapp1.cc
 server:
-  port: 8762
+  port: 8761
   servlet:
     context-path: /sell
